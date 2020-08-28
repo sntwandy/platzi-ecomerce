@@ -16,7 +16,7 @@ export default function thanks() {
         </h2>
         <p>Enjoy your swag!</p>
         <p>We'll wait for you, remember never stop learning!</p>
-        <span rol="img" aria-label="emoji">
+        <span role="img" aria-label="emoji">
           😄
         </span>
         <Link to="/">

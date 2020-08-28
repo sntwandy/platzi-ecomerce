@@ -16,7 +16,7 @@ export default function thanks() {
         </h2>
         <p>We're so sorry for that.</p>
         <p>I hope that you will purchase anything else.</p>
-        <span rol="img" aria-label="emoji">
+        <span role="img" aria-label="emoji">
           🥺
         </span>
         <Link to="/">

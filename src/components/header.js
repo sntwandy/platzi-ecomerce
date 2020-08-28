@@ -5,7 +5,7 @@ import { MenuItem, StyledHeader } from "../styles/components"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>
-    <Link>
+    <Link to="/">
       <img src="https://i.postimg.cc/6q3pg48v/Logo.png" alt="logo" />
     </Link>
     <nav>
@@ -14,7 +14,9 @@ const Header = ({ siteTitle }) => (
           <Link to="/">Products</Link>
         </MenuItem>
         <MenuItem margin>
-          <a href="https://twitter.com/@sntwandy">@sntwandy</a>
+          <a href="https://twitter.com/@sntwandy" target="_blank">
+            @sntwandy
+          </a>
         </MenuItem>
         <MenuItem>
           <Link to="/cart">
