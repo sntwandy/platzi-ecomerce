@@ -69,23 +69,23 @@ export const StyledJumbo = styled.div`
   margin-bottom: 5rem;
   overflow: hidden;
   position: relative;
-  
-  div{
+
+  div {
     padding: 1rem;
     width: 35vw;
-  };
+  }
   & h2 {
     margin: 0;
     font-weight: 500;
     font-size: 1rem;
-  };
-  & small{
+  }
+  & small {
     font-weight: 100;
     font-size: 0.6rem;
-  };
-  & img{
+  }
+  & img {
     width: 35vw;
-  };
+  }
   ${above.medium`
     padding: 2rem 4rem;
     flex-direction: row;
@@ -116,7 +116,7 @@ export const StyledJumbo = styled.div`
     };
   `}
 
-  &:before{
+  &:before {
     content: " ";
     background-color: red;
     background-color: ${colors.darkBlue};
@@ -140,8 +140,7 @@ export const StyledJumbo = styled.div`
       height: 52vw;
       top: -66%;
     `}
-  };
-
+  } ;
 `
 
 export const StyledProducts = styled.div`
@@ -405,7 +404,7 @@ export const SizeSelect = styled.div`
   grid-gap: 8px;
   font-size: 0.8rem;
   margin-top: 0.6rem;
-  button:nth-child(${props => props.selected}) {
+  button:nth-child(${(props) => props.selected}) {
     border: 2px solid rgba(0, 0, 0, 0.3);
   }
 `
@@ -439,7 +438,7 @@ export const SelectStars = styled.div`
     color: ${colors.gray};
     cursor: pointer;
   }
-  span:nth-child(-n + ${props => props.selected}) {
+  span:nth-child(-n + ${(props) => props.selected}) {
     color: ${colors.orange};
   }
 `
@@ -459,6 +458,8 @@ export const Purchase = styled.div`
   }
   span {
     font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 `
 
