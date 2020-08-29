@@ -1,15 +1,30 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
-
-import { SEO, Jumbo } from "../components"
+import { graphql } from "gatsby"
+import { SEO, Jumbo, Products } from "../components"
 
 export const query = graphql`
-  query GET_DESCRIPTION {
+  query GET_DATA {
     allSite {
       edges {
         node {
           siteMetadata {
             description
+          }
+        }
+      }
+    }
+    allStripePrice {
+      edges {
+        node {
+          id
+          unit_amount
+          product {
+            name
+            metadata {
+              description
+              img
+              wear
+            }
           }
         }
       }
@@ -23,11 +38,7 @@ const IndexPage = ({ data }) => {
     <>
       <SEO title="Home" />
       <Jumbo description={description} />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Link to="/thanks/">Go to thanks</Link>
-      <Link to="/canceled/">Go to canceled</Link>
+      <Products products={data.allStripePrice.edges} />
     </>
   )
 }
