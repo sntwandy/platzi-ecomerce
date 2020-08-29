@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Platzi Swag`,
+    title: `Platzi Swag Store`,
     description: `The best swag fo Platzi for you`,
     author: `@sntwandy`,
   },
