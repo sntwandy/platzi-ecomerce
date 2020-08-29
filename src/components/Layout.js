@@ -7,15 +7,15 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { Content, Footer } from "../styles/components"
+import { Content, Footer } from "../styles/Components"
 
-import Header from "./header"
+import Header from "./Header"
 import "./layout.css"
 
 const Layout = ({ children }) => (
   <>
     <Header />
-    <Content>
+    <div>
       <main>{children}</main>
       <Footer>
         made 💚 by:
@@ -23,7 +23,7 @@ const Layout = ({ children }) => (
           @sntwandy
         </a>
       </Footer>
-    </Content>
+    </div>
   </>
 )
 

@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import formatprice from "../utils/priceFormat"
-import { StyledProducts } from "../styles/components"
+import formatprice from "../utils/PriceFormat"
+import { StyledProducts } from "../styles/Components"
 
 export default function Products({ products }) {
   return (
@@ -11,14 +11,14 @@ export default function Products({ products }) {
         {products.map(({ node }) => {
           const price = formatprice(node.unit_amount)
           return (
-            <article key={node.id}>
-              <img src={node.product.metadata.img} alt={node.product.name} />
-              <p>{node.product.name}</p>
-              <small>USD {price}</small>
-              <Link to={`/${node.id}`}>
-                Buy now <span>➡️</span>
-              </Link>
-            </article>
+            <Link to={`/${node.id}`}>
+              <article key={node.id}>
+                <img src={node.product.metadata.img} alt={node.product.name} />
+                <p>{node.product.name}</p>
+                <small>USD {price}</small>
+                <span>Buy now ➡️</span>
+              </article>
+            </Link>
           )
         })}
       </section>

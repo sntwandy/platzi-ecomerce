@@ -17,7 +17,6 @@ export const StyledHeader = styled.header`
     ${colors.lightBlue}
   );
   margin-bottom: 0;
-  padding: 0 0.5rem 0 0;
   height: 3.5rem;
   width: 100%;
   max-width: 960;
@@ -25,7 +24,7 @@ export const StyledHeader = styled.header`
   position: fixed;
   z-index: 3;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   a {
     height: 100%;
     font-size: 0.6rem;
@@ -43,7 +42,6 @@ export const StyledHeader = styled.header`
     font-size: 0.2rem;
   }
   ${above.medium`
-    padding: 0 2rem;
     height: 3.5rem;
     a{
       height: 100%;
@@ -51,7 +49,6 @@ export const StyledHeader = styled.header`
     }
   `}
   ${above.large`
-    padding: 0 10rem;
     height: 4.5rem;
     a{
       height: 100%;
@@ -204,20 +201,25 @@ export const StyledProducts = styled.div`
       grid-gap: 3rem;
       padding: 0 10rem;
     `};
+    & a {
+      text-decoration: none;
+      color: #000;
+    }
   }
 `
 
 export const StyledProductDetail = styled.div`
-  padding: 1rem;
   display: flex;
-  flex-direction: column;
-  text-align: justify;
-  height: 82vh;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 90vh;
   img {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    margin: 0;
+    max-width: 1444px;
+    max-height: 600px;
+    margin: 0
   }
   p {
     color: #171717;
@@ -246,19 +248,17 @@ export const StyledProductDetail = styled.div`
       margin: 0.5rem 0;
       display: block;
       fill: red;
+      margin: 0:
     }
   }
   ${above.medium`
-    padding: 1rem 3rem;
     flex-direction: column;
-    img{
-      margin-right: 2rem;
-    }
+    heigth: 0;
+    margin: 0;
     `}
   ${above.large`
     flex-direction: row;
-    height: 82vh;
-    padding: 2rem 10rem;
+    margin: 0;
   `}
 `
 
@@ -461,13 +461,4 @@ export const Purchase = styled.div`
     margin-top: 10px;
     margin-bottom: 20px;
   }
-`
-
-export const Content = styled.div`
-  ${above.medium`
-    padding-top: 3.5rem;
-    `}
-  ${above.large`
-    padding-top: 4.5rem;
-  `}
 `

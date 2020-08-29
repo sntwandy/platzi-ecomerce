@@ -1,5 +1,5 @@
 import React from "react"
-import { StyledJumbo } from "../styles/components"
+import { StyledJumbo } from "../styles/Components"
 import { Image } from "./"
 
 export default function Jumbo({ description }) {
