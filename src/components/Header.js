@@ -22,7 +22,7 @@ const Header = ({ siteTitle }) => {
             </a>
           </MenuItem>
           <MenuItem>
-            <Link to="/cart">
+            <Link to="/Cart/">
               <span>
                 <img src="https://i.postimg.cc/L6wpMxLt/cart.png" alt="cart" />
               </span>
