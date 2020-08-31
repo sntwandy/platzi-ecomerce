@@ -7,20 +7,34 @@ import { CartContext } from "../Context"
 export default function CartComponent() {
   const { cart } = useContext(CartContext)
   const [total, setTotal] = useState(0)
-  console.log(cart)
+  const [stripe, setStripe] = useState()
 
   const getTotal = () => {
     setTotal(
-      cart.reduce(
-        (acc, current) => acc + current.unit_amount * current.quantity,
-        0
-      )
+      cart.reduce((acc, current) => acc + current.price * current.quantity, 0)
     )
   }
 
   useEffect(() => {
+    setStripe(window.Stripe(process.env.STRIPE_PK))
     getTotal()
   }, [])
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: cart.map(({ id, quantity }) => ({ price: id, quantity })),
+      mode: "subscription",
+      successUrl: "http://localhost:8000/Thanks/",
+      cancelUrl: "http://localhost:8000/Canceled/",
+    })
+
+    if (error) {
+      throw new Error(error.message)
+    }
+  }
+
   return (
     <StyledCart>
       <h2>Shop Cart</h2>
@@ -37,9 +51,9 @@ export default function CartComponent() {
               <td>
                 <img src={swag.metadata.img} alt={swag.name} /> {swag.name}
               </td>
-              <td>USD:{priceFormat(swag.unit_amount)}</td>
+              <td>USD:{priceFormat(swag.price)}</td>
               <td>{swag.quantity}</td>
-              <td>{priceFormat(swag.quantity * swag.unit_amount)}</td>
+              <td>{priceFormat(swag.quantity * swag.price)}</td>
             </tr>
           ))}
         </tbody>
@@ -53,7 +67,9 @@ export default function CartComponent() {
           <Link to="/">
             <Button type="outline">Back</Button>
           </Link>
-          <Button>Buy</Button>
+          <Button onClick={handleSubmit} disabled={cart.length === 0}>
+            Buy
+          </Button>
         </div>
       </nav>
     </StyledCart>

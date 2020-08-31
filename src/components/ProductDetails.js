@@ -23,7 +23,7 @@ export default function ProductDetails({
   const { addToCart } = useContext(CartContext)
 
   const handleSubmit = () => {
-    addToCart({ id, name, unit_amount, metadata, quantity })
+    addToCart({ id, name, price: unit_amount, metadata, quantity })
   }
   return (
     <StyledProductDetail>

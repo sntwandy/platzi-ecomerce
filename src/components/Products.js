@@ -9,7 +9,7 @@ export default function Products({ products }) {
       <h2>Products</h2>
       <section>
         {products.map(({ node }) => {
-          const price = formatprice(node.unit_amount)
+          const price = formatprice(node.price)
           return (
             <Link to={`/${node.id}`}>
               <article key={node.id}>
