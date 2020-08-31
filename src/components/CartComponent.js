@@ -12,23 +12,10 @@ export default function CartComponent() {
   const getTotal = () => {
     setTotal(
       cart.reduce(
-        (acc, current) => acc + current.price.split("$")[1] * current.quantity,
+        (acc, current) => acc + current.unit_amount * current.quantity,
         0
       )
     )
-  }
-
-  const priceFormated = (price, quantity) => {
-    if (quantity) {
-      return priceFormat(
-        price.split("$")[1].split(".")[0] * quantity +
-          price.split("$")[1].split(".")[1]
-      )
-    } else {
-      return priceFormat(
-        price.split("$")[1].split(".")[0] + price.split("$")[1].split(".")[1]
-      )
-    }
   }
 
   useEffect(() => {
@@ -50,9 +37,9 @@ export default function CartComponent() {
               <td>
                 <img src={swag.metadata.img} alt={swag.name} /> {swag.name}
               </td>
-              <td>USD:{priceFormated(swag.price)}</td>
+              <td>USD:{priceFormat(swag.unit_amount)}</td>
               <td>{swag.quantity}</td>
-              <td>{priceFormated(swag.price, swag.quantity)}</td>
+              <td>{priceFormat(swag.quantity * swag.unit_amount)}</td>
             </tr>
           ))}
         </tbody>
