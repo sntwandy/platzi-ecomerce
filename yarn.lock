@@ -6463,6 +6463,13 @@ gatsby-plugin-stripe@^1.2.4:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-stripe/-/gatsby-plugin-stripe-1.2.4.tgz#02b105b7a405dc5bdf165b085cb41478c69276fb"
   integrity sha512-g2mj5llTjzIhGQ6fxLLjaTlQWP0ntu62+AnJ2Ff9EDEXm5+5TGrCL4T7Q3on3d0HNK/7gkGPPVVSlRCNOKq4vA==
 
+gatsby-plugin-styled-components@^3.3.10:
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.3.10.tgz#d325535023695382cf0f209382e5e0cc4658e6e6"
+  integrity sha512-2yV3hanEPelf8IwkOa1Sk4RtHh4tuuvdJs2NCnAsHxYEMLlFC4UeG91z4Q4t69G7RvZ2W8PzdByLK5N5C97CQQ==
+  dependencies:
+    "@babel/runtime" "^7.10.3"
+
 gatsby-plugin-typescript@^2.4.18:
   version "2.4.18"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.4.18.tgz#9361ef69f149f68e55ebf2d3f773b9aafce75df8"
