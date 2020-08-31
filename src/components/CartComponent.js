@@ -26,8 +26,8 @@ export default function CartComponent() {
     const { error } = await stripe.redirectToCheckout({
       lineItems: cart.map(({ id, quantity }) => ({ price: id, quantity })),
       mode: "subscription",
-      successUrl: "http://localhost:8000/Thanks/",
-      cancelUrl: "http://localhost:8000/Canceled/",
+      successUrl: process.env.SUCCESS_REDIRECT,
+      cancelUrl: CANCEL_REDIRECT,
     })
 
     if (error) {
