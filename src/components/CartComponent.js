@@ -7,15 +7,32 @@ import { CartContext } from "../Context"
 export default function CartComponent() {
   const { cart } = useContext(CartContext)
   const [total, setTotal] = useState(0)
+  console.log(cart)
 
   const getTotal = () => {
     setTotal(
-      cart.reduce((acc, current) => acc + current.price * current.quantity, 0)
+      cart.reduce(
+        (acc, current) => acc + current.price.split("$")[1] * current.quantity,
+        0
+      )
     )
   }
 
+  const priceFormated = (price, quantity) => {
+    if (quantity) {
+      return priceFormat(
+        price.split("$")[1].split(".")[0] * quantity +
+          price.split("$")[1].split(".")[1]
+      )
+    } else {
+      return priceFormat(
+        price.split("$")[1].split(".")[0] + price.split("$")[1].split(".")[1]
+      )
+    }
+  }
+
   useEffect(() => {
-    setTotal()
+    getTotal()
   }, [])
   return (
     <StyledCart>
@@ -24,7 +41,7 @@ export default function CartComponent() {
         <tbody>
           <tr>
             <th>Product</th>
-            <th>Price</th>console.log(Number(swag.price)
+            <th>Price</th>
             <th>Quantity</th>
             <th>Total</th>
           </tr>
@@ -33,9 +50,9 @@ export default function CartComponent() {
               <td>
                 <img src={swag.metadata.img} alt={swag.name} /> {swag.name}
               </td>
-              <td>USD: {priceFormat(swag.price)}</td>
+              <td>USD:{priceFormated(swag.price)}</td>
               <td>{swag.quantity}</td>
-              <td>{swag.quantity * priceFormat(swag.price)}</td>
+              <td>{priceFormated(swag.price, swag.quantity)}</td>
             </tr>
           ))}
         </tbody>
