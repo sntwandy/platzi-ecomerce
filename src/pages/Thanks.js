@@ -10,7 +10,7 @@ export default function thanks() {
       <Purchase>
         <h2>
           Sucessful purchase
-          <span rol="img" aria-label="emoji">
+          <span role="img" aria-label="emoji">
             💚
           </span>
         </h2>
